@@ -17,5 +17,5 @@ Including another URLconf
 from django.urls import path, include
 
 urlpatterns = [
-    path('', include('stations.urls')),
+    path('', include('stations.urls')), #пустой путь, потому что есть функция index в views.py
 ]
