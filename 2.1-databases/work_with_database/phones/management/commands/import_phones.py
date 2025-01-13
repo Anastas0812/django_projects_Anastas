@@ -5,13 +5,24 @@ from phones.models import Phone
 
 
 class Command(BaseCommand):
-    def add_arguments(self, parser):
-        pass
+    help = 'Import phones from CSV'
 
     def handle(self, *args, **options):
-        with open('phones.csv', 'r') as file:
-            phones = list(csv.DictReader(file, delimiter=';'))
+        file_path = 'phones.csv'
 
-        for phone in phones:
-            # TODO: Добавьте сохранение модели
-            pass
+        with open(file_path, mode='r', encoding='utf-8') as file:
+            reader = csv.DictReader(file, delimiter=';')
+            for row in reader:
+                try:
+                    phone = Phone(
+                        id=row['id'],
+                        name=row['name'],
+                        image=row['image'],
+                        price=row['price'],
+                        release_date=row['release_date'],
+                        lte_exists=row['lte_exists']
+                    )
+                    phone.save()
+                except KeyError:
+                    print('проблемы с айдишниками')
+        self.stdout.write(self.style.SUCCESS('all is ok'))
