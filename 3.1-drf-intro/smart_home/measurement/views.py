@@ -5,12 +5,12 @@ from .serializers import SensorSerializer, MeasurementSerializer
 
 
 # получение + создание датчиков (GET, POST запросы)
-class MeasurementListCreateAPIView(ListCreateAPIView):
+class SensorListCreateAPIView(ListCreateAPIView):
     queryset = Sensor.objects.all()
     serializer_class = SensorSerializer
 
 #обновление датчика (PATCH)
-class MeasurementRetrieveUpdateAPIView(RetrieveUpdateAPIView):
+class SensorRetrieveUpdateAPIView(RetrieveUpdateAPIView):
     queryset = Sensor.objects.all()
     serializer_class = SensorSerializer
 
