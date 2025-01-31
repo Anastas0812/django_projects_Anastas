@@ -1,0 +1,87 @@
+GET http://127.0.0.1:8000/api/v1
+
+###
+
+POST http://127.0.0.1:8000/api/v1/products/
+Content-Type: application/json
+
+{
+  "title": "Помидор",
+  "description": "Лучшие помидоры на рынке"
+}
+
+###
+
+GET http://127.0.0.1:8000/api/v1/products/
+
+###
+
+GET http://127.0.0.1:8000/api/v1/stocks/
+
+###
+
+PATCH http://127.0.0.1:8000/api/v1/products/4/
+Content-Type: application/json
+
+{
+  "description": "Самые сочные и ароматные помидорки"
+}
+
+###
+
+DELETE http://127.0.0.1:8000/api/v1/products/1/
+Content-Type: application/json
+
+###
+
+GET http://127.0.0.1:8000/api/v1/products/?search=помидор
+Content-Type: application/json
+
+###
+
+POST http://127.0.0.1:8000/api/v1/stocks/
+Content-Type: application/json
+
+{
+  "address": "Советская 23 ",
+  "positions": [
+    {
+      "product": 2,
+      "quantity": 250,
+      "price": 120.50
+    },
+    {
+      "product": 3,
+      "quantity": 100,
+      "price": 180
+    }
+  ]
+}
+
+###
+
+PATCH http://127.0.0.1:8000/api/v1/stocks/2/
+Content-Type: application/json
+
+{
+  "positions": [
+    {
+      "product": 2,
+      "quantity": 100,
+      "price": 130.80
+    },
+    {
+      "product": 3,
+      "quantity": 243,
+      "price": 145
+    }
+  ]
+}
+
+###
+
+GET http://127.0.0.1:8000/api/v1/stocks/2/
+
+###
+
+GET http://127.0.0.1:8000/api/v1/stocks/?products=3
