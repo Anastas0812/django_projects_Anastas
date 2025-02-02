@@ -1,0 +1,61 @@
+GET http://127.0.0.1:8000/api/advertisements/
+Content-Type: application/json
+
+###
+
+POST http://127.0.0.1:8000/api/advertisements/
+Content-Type: application/json
+Authorization: Token 3aa6b50bb298f4af1ba21d295363479380e8d962
+
+{
+  "title": "админ создает объявление",
+  "description": "admin1"
+}
+
+###
+
+PATCH http://127.0.0.1:8000/api/advertisements/2/
+Content-Type: application/json
+Authorization: Token 5fca532100f86447c1f4009f590d8dbe17502f12
+
+{
+  "title": "lampa_update",
+  "description": "admin update"
+}
+
+###
+
+GET http://127.0.0.1:8000/api/advertisements/?creator=2
+Content-Type: application/json
+
+###
+
+
+GET http://127.0.0.1:8000/api/advertisements/?status=OPEN
+Content-Type: application/json
+
+###
+
+POST http://127.0.0.1:8000/api/advertisements/
+Content-Type: application/json
+
+{
+  "title": "я чужой",
+  "description": "анон"
+}
+
+###
+
+DELETE http://127.0.0.1:8000/api/advertisements/3/
+Authorization: Token 5fca532100f86447c1f4009f590d8dbe17502f12
+
+###
+
+PATCH http://127.0.0.1:8000/api/advertisements/3/
+Content-Type: application/json
+Authorization: Token 5fca532100f86447c1f4009f590d8dbe17502f12
+
+{
+  "title": "stul_update",
+  "description": "admin2 update"
+}
